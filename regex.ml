@@ -5,6 +5,7 @@ type regex =
   | Seq of regex * regex
   | Alt of regex * regex
   | Star of regex
+  | NTimes of regex * int
 
 (* Syntactic sugar for our expressions *)
 let ( ** ): regex -> regex -> regex = fun r1 r2 -> Seq (r1, r2)
@@ -21,6 +22,7 @@ let rec display_regex r =
   | Alt (r1, r2) -> 
       Printf.sprintf "(%s ||| %s)" (display_regex r1) (display_regex r2)
   | Star r -> Printf.sprintf "(%s)*" (display_regex r)
+  | NTimes (r, n) -> Printf.sprintf "(%s{%d})" (display_regex r) n
 
 
 
@@ -30,7 +32,7 @@ let rec nullable(r: regex) =
   | One  | Star(_) -> true
   | Seq(r1, r2) -> nullable r1 && nullable r2
   | Alt(r1, r2) -> nullable r1 || nullable r2
-
+  | NTimes(r, n) -> n = 0 || nullable(r)
 
 let rec der(r: regex) (c: char) =
   match r with
@@ -42,6 +44,7 @@ let rec der(r: regex) (c: char) =
     else der r1 c ** r2
   | Alt(r1, r2) -> der r1 c ||| der r2 c
   | Star(r) -> der r c ** r
+  | NTimes(r, n) -> if n = 0 then Zero else (der r c ** NTimes(r, n-1))
 
 let rec simp(r: regex) =
   match r with
@@ -53,6 +56,8 @@ let rec simp(r: regex) =
     | Zero, r1s | r1s, Zero -> r1s
     | r1s, r2s -> r1s ||| r2s)
   | Star(One) | Star(Zero) -> One
+  | NTimes(One, _) -> One
+  | NTimes(Zero, _) -> Zero
   | r -> r
 
 let rec matches (r: regex) (cs: char list) =
@@ -70,6 +75,12 @@ let regex_test_cases : (regex * char list * bool) list = [
   (Char 'a' ** star (Char 'b'),     ['a'; 'b'; 'b'], true);
   (Char 'a' ** Char 'b',            ['a'; 'b'; 'b'], false);
   (Char 'a' ||| Zero ** Char 'b',   ['a'], true);
+  (NTimes (Char 'a', 5),             ['a';'a';'a';'a';'a'], true);
+  (NTimes (Char 'a', 4),             ['a';'a';'a';'a';'a'], false);
+  (NTimes (Char 'a', 6),             ['a';'a';'a';'a';'a'], false);
+  (NTimes ((Char 'a' ** Char 'b'), 6), ['a';'b';'a';'b';'b'], false);
+  (NTimes (Char 'a' ** Char 'b', 6), ['a';'b';'a';'b';'b';'a'], false);
+  (NTimes (Char 'a' ** Char 'b', 3), ['a';'b';'a';'b';'a';'b'], true);
 ]
 
 let simp_test_cases : (regex * regex) list = [
@@ -91,7 +102,7 @@ let run_tests () =
     if result = should_match then
       Printf.printf "Test passed for input: %s\n" (String.of_seq (List.to_seq input))
     else
-      Printf.printf "Test failed for input: %s\n" (String.of_seq (List.to_seq input))
+      Printf.printf "\n---------------\nTest failed for input: %s\n----------------\n" (String.of_seq (List.to_seq input))
   ) regex_test_cases
 
 let run_tests_simp () =
