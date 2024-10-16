@@ -9,9 +9,8 @@ type regex =
   (* | Range of regex * int * int *)
 
 type value =
-  | NoValue
+  | StarVal of value list
   | Empty
-  | Once of value
   | Literal of char
   | Pair of value * value
   | Left of value
@@ -23,11 +22,12 @@ let ( ||| ): regex -> regex -> regex = fun r1 r2 -> Alt (r1, r2)
 let star: regex -> regex = fun r -> Star r
 
 
+
+(* Pretty printing *)
 let rec display_value v =
   match v with
-  | NoValue -> "NoValue"
+  | StarVal(_) -> "StarValue()"
   | Empty -> "Empty"
-  | Once v -> "Once(" ^ display_value v ^ ")"
   | Literal c -> "Literal('" ^ String.make 1 c ^ "')"
   | Pair (v1, v2) -> "Pair(" ^ display_value v1 ^ ", " ^ display_value v2 ^ ")"
   | Left v -> "Left(" ^ display_value v ^ ")"
@@ -47,6 +47,12 @@ let rec display_regex r =
   | NTimes (r, n) -> Printf.sprintf "(%s{%d})" (display_regex r) n
 
 
+let c_str (cs: char list) = 
+  String.concat "" (List.map (String.make 1) cs)
+
+let s_str (ss: string list) =
+  String.concat "" ss
+
 let rec nullable(r: regex) = 
   match r with
   | Zero | Char(_) -> false
@@ -58,6 +64,7 @@ let rec nullable(r: regex) =
 
 
 let rec der(r: regex) (c: char) =
+  Printf.printf "Derivative being calculated for %s wrt. %s\n" (display_regex r) (String.make 1 c);
   match r with
   | Zero | One -> Zero
   | Char(x) -> if x = c then One else Zero
@@ -66,7 +73,7 @@ let rec der(r: regex) (c: char) =
     then (der r1 c ** r2) ||| der r2 c
     else der r1 c ** r2
   | Alt(r1, r2) -> der r1 c ||| der r2 c
-  | Star(r) -> der r c ** r
+  | Star(r) -> der r c ** Star(r)
   | NTimes(r, n) -> if n = 0 then Zero else (der r c ** NTimes(r, n-1))
   (* | Range(r, lb, ub) -> if lb = 0 then Zero else (der r c ** Range(r, lb - 1, ub - 1)) *)
 
@@ -94,15 +101,18 @@ let rec matches (r: regex) (cs: char list) =
 
 
 let rec mkEps (r: regex) =
+  Printf.printf "mkEps recieved: %s\n" (display_regex r);
   match r with 
-  | Star(_) -> NoValue
+  | Star(r) -> StarVal([])
   | Seq(r1, r2) -> Pair(mkEps r1, mkEps r2)
   | Alt(r1, r2) when nullable r1 -> Left(mkEps r1)
   | Alt(r1, r2) when nullable r2 -> Right(mkEps r2)
   | One -> Empty
+  | _ -> failwith (Printf.sprintf "Mkeps recieved an odd regex: %s\n" (display_regex r))
 
 
 let rec inj (r: regex) (c: char) (v: value) = 
+  Printf.printf "Inj recieved r: %s, for c: %s, and v: %s \n" (display_regex r) (String.make 1 c) (display_value v);
   match (r, v) with
   | (Seq(r1, r2), v) -> (match v with
     | Pair(v1, v2) -> Pair(inj r1 c v1, v2)
@@ -111,7 +121,27 @@ let rec inj (r: regex) (c: char) (v: value) =
   | (Alt(r1, r2), v) -> (match v with
     | Left(v1) -> Left(inj r1 c v1)
     | Right(v2) -> Right(inj r2 c v2))
-  | (Char(c), Empty) -> Literal c
+  | (Char(ch), Empty) when ch = c -> Literal(ch)
+  | (Star(r1), Pair(v1, StarVal(sv))) -> StarVal(inj r1 c v1::sv)
+  | _ -> v
+
+
+let rec flatten v =
+  match v with
+  | Empty | StarVal([]) -> [""]
+  | StarVal(x :: xs) -> List.append (flatten x) (flatten (StarVal xs))
+  | Literal l -> [String.make 1 l]
+  | Pair(v1, v2) -> flatten v1 @ flatten v2
+  | Left(v1) -> flatten v1
+  | Right v1 -> flatten v1
+
+
+let rec lex (r: regex) (s: char list) : value =
+  Printf.printf "Lex function atching r: %s on the string %s\n" (display_regex r) (c_str s);
+  match s with
+  | [] -> if nullable r then mkEps r else failwith (Printf.sprintf "Matcher found no matches for the string %s with the regex %s" (c_str s) (display_regex r))
+  | c::cs -> inj r c (lex (der r c) cs)
+
 
 let regex_test_cases : (regex * char list * bool) list = [
   (Char 'a',                        ['a'], true);
@@ -155,6 +185,29 @@ let inj_test_cases : (regex * char * value * value) list = [
   )
 ]
 
+let lex_test_cases : (regex * char list * string) list = [
+  (Char 'a' ||| Zero ** Char 'b',         ['a'], "a");
+  ((Zero ** Char 'b' ||| Char 'a'),       ['a'], "a");
+  (Star(Char 'a'),                        ['a'], "a");
+  (Star(Seq(Char 'a', Char 'b')),         ['a';'b';'a';'b'], "abab");
+  (Star(Alt(Seq(Char 'a', Char 'b'), Seq(Char 'd', Char 'e'))), ['a';'b';'d';'e';'a';'b'], "abdeab");
+  (Star One,                              [], "");
+  (Star(Char 'a'),                        [], "");
+  (Star(Char 'a'),                        ['a'; 'a'; 'a'], "aaa");
+]
+
+let run_tests_lex() = 
+  List.iter(fun (r, s, m) ->
+    Printf.printf "\n\nNew Test\n";
+    let lexed = lex r s in
+    let res = s_str (flatten lexed) in
+    if res = m then
+      Printf.printf "Pass %s \n" res
+    else
+      Printf.printf "FAIL \n";
+      Printf.printf "Expected %s to match %s\n" res m 
+    ) lex_test_cases
+
 let run_tests_inj() = 
   List.iter(fun (r, c, vs, vr) ->
       let res = inj r c vs in
@@ -191,8 +244,11 @@ let run_tests_simp () =
       Printf.printf "Test failed for input: \n %s simplified to %s instead of %s" (display_regex input) (display_regex result) (display_regex expected_output)
   ) simp_test_cases
 
+let verbose = ref false
+
 let () =
-  (* run_tests_match (); *)
-  (* run_tests_simp () *)
-  (* run_tests_mkEps () *)
-  run_tests_inj ()
+  run_tests_match ();
+  run_tests_simp ();
+  run_tests_mkEps ();
+  run_tests_inj ();
+  run_tests_lex ();
