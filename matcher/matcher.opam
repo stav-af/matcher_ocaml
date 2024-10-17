@@ -1,0 +1,9 @@
+opam-version: "2.0"
+name: "matcher"
+version: "0.1"
+synopsis: "A matcher project"
+description: "An example OCaml project using Dune"
+depends: [
+  "dune" {>= "2.0"}
+  (* Add other dependencies here *)
+]
