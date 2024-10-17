@@ -6,6 +6,7 @@ type regex =
   | Alt of regex * regex
   | Star of regex
   | NTimes of regex * int
+  | Recd of string * regex
   (* | Range of regex * int * int *)
 
 type value =
@@ -15,13 +16,12 @@ type value =
   | Pair of value * value
   | Left of value
   | Right of value
+  | Rec of string * value
 
 (* Syntactic sugar for our expressions *)
 let ( ** ): regex -> regex -> regex = fun r1 r2 -> Seq (r1, r2)
 let ( ||| ): regex -> regex -> regex = fun r1 r2 -> Alt (r1, r2)
 let star: regex -> regex = fun r -> Star r
-
-
 
 (* Pretty printing *)
 let rec display_value v =
@@ -32,7 +32,7 @@ let rec display_value v =
   | Pair (v1, v2) -> "Pair(" ^ display_value v1 ^ ", " ^ display_value v2 ^ ")"
   | Left v -> "Left(" ^ display_value v ^ ")"
   | Right v -> "Right(" ^ display_value v ^ ")"
-
+  | Rec (s, v) -> Printf.sprintf "Record(%s: %s)" s (display_value v) 
 
 let rec display_regex r =
   match r with
@@ -44,7 +44,11 @@ let rec display_regex r =
   | Alt (r1, r2) -> 
       Printf.sprintf "(%s ||| %s)" (display_regex r1) (display_regex r2)
   | Star r -> Printf.sprintf "(%s)*" (display_regex r)
+  | Recd (s, r) -> Printf.sprintf "Record(%s: %s)" s (display_regex r) 
   | NTimes (r, n) -> Printf.sprintf "(%s{%d})" (display_regex r) n
+
+let display_env ev = 
+  List.iter (fun (x, s) -> Printf.printf "Found submatch (%s: %s)" x s) ev
 
 
 let c_str (cs: char list) = 
@@ -75,6 +79,7 @@ let rec der(r: regex) (c: char) =
   | Alt(r1, r2) -> der r1 c ||| der r2 c
   | Star(r) -> der r c ** Star(r)
   | NTimes(r, n) -> if n = 0 then Zero else (der r c ** NTimes(r, n-1))
+  | Recd(_, r1) -> der r1 c
   (* | Range(r, lb, ub) -> if lb = 0 then Zero else (der r c ** Range(r, lb - 1, ub - 1)) *)
 
 
@@ -108,6 +113,7 @@ let rec mkEps (r: regex) =
   | Alt(r1, r2) when nullable r1 -> Left(mkEps r1)
   | Alt(r1, r2) when nullable r2 -> Right(mkEps r2)
   | One -> Empty
+  | Recd(x, r1) -> Rec(x, mkEps r1)
   | _ -> failwith (Printf.sprintf "Mkeps recieved an odd regex: %s\n" (display_regex r))
 
 
@@ -123,6 +129,7 @@ let rec inj (r: regex) (c: char) (v: value) =
     | Right(v2) -> Right(inj r2 c v2))
   | (Char(ch), Empty) when ch = c -> Literal(ch)
   | (Star(r1), Pair(v1, StarVal(sv))) -> StarVal(inj r1 c v1::sv)
+  | (Recd(x, r1), _) -> Rec(x, inj r1 c v) 
   | _ -> v
 
 
@@ -134,6 +141,16 @@ let rec flatten v =
   | Pair(v1, v2) -> flatten v1 @ flatten v2
   | Left(v1) -> flatten v1
   | Right v1 -> flatten v1
+  | Rec(x, v) -> flatten v
+
+let rec env v =
+  match v with
+  | Empty | Literal(_) | StarVal([])-> []
+  | StarVal(x :: xs) -> List.append (env x) (env (StarVal xs))
+  | Pair(v1, v2) -> env v1 @ env v2
+  | Left(v1) -> env v1
+  | Right(v1) -> env v1
+  | Rec(x, v) -> List.append [(x, (s_str (flatten v)))] (env v)
 
 
 let rec lex (r: regex) (s: char list) : value =
@@ -142,6 +159,9 @@ let rec lex (r: regex) (s: char list) : value =
   | [] -> if nullable r then mkEps r else failwith (Printf.sprintf "Matcher found no matches for the string %s with the regex %s" (c_str s) (display_regex r))
   | c::cs -> inj r c (lex (der r c) cs)
 
+let parse (r: regex) (s: char list) : (string * string) list = 
+  env (lex r s)
+  
 
 let regex_test_cases : (regex * char list * bool) list = [
   (Char 'a',                        ['a'], true);
@@ -195,6 +215,23 @@ let lex_test_cases : (regex * char list * string) list = [
   (Star(Char 'a'),                        [], "");
   (Star(Char 'a'),                        ['a'; 'a'; 'a'], "aaa");
 ]
+
+
+let env_test_cases: (regex * char list * (string * string) list) list = [
+  (Recd("Nonsense", Star(Char 'a')), ['a';'a';'a';], [("Nonsense", "aaa")]);
+]
+
+let run_env_test_cases() = 
+  List.iter(fun (r, cl, toks) -> 
+    let result = parse r cl in
+    if result = toks then
+      Printf.printf "Pass, tokenized %s" @@ c_str cl
+    else (
+      Printf.printf "FAIL: Expected env to be:\n";
+      display_env toks;
+      Printf.printf "But found this instead: \n";
+      display_env result;)
+    ) env_test_cases
 
 let run_tests_lex() = 
   List.iter(fun (r, s, m) ->
@@ -252,3 +289,4 @@ let () =
   run_tests_mkEps ();
   run_tests_inj ();
   run_tests_lex ();
+  run_env_test_cases ();
