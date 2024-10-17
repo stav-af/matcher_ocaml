@@ -2,6 +2,20 @@ open Matcher.Regex
 open Matcher.Formatter
 open Matcher.Core
 
+(* 
+
+Test Suite for functions in the Core module
+
+All test cases are of format [(...inputs, expected_output)]
+and test runners are of format run_tests_{func_name}
+
+To add a test case, simply append a tuple to any of the test case lists, with the inputs and expected output
+
+dune run will 
+
+
+*)
+
 let regex_test_cases : (regex * char list * bool) list = [
   (Char 'a',                        ['a'], true);
   (Char 'a' ** Char 'b',            ['a'; 'b'], true);
@@ -17,14 +31,19 @@ let regex_test_cases : (regex * char list * bool) list = [
   (NTimes ((Char 'a' ** Char 'b'), 6),  ['a';'b';'a';'b';'b'], false);
   (NTimes (Char 'a' ** Char 'b', 6),    ['a';'b';'a';'b';'b';'a'], false);
   (NTimes (Char 'a' ** Char 'b', 3),    ['a';'b';'a';'b';'a';'b'], true);
+  (Opt(Char 'a'),                    ['a'], true);
+  (Opt(Char 'a'),                    [], true);
+  (Opt(Seq(Char 'a', Char 'b')),     [], true);
+  (Opt(Seq(Char 'a', Char 'b')),     ['a'], false);
+  (Opt(Seq(Char 'a', Char 'b')),     ['a';'b'], true);
 ]
 let run_tests_match () =
   List.iter (fun (regex, input, should_match) ->
     let result = matches regex input in
     if result = should_match then
-      Printf.printf "Test passed for input: %s\n" (String.of_seq (List.to_seq input))
+      Printf.printf "Pass: Correct for matching %s to %s\n" (display_regex regex) (c_str input)
     else
-      Printf.printf "\n---------------\nTest failed for input: %s\n----------------\n" (String.of_seq (List.to_seq input))
+      Printf.printf "Fail: Expected match '%s' against '%s' to be '%s' but matcher returned '%s'\n" (display_regex regex) (c_str input) (b_str should_match) (b_str result)
   ) regex_test_cases
 
 
@@ -44,9 +63,9 @@ let run_tests_simp () =
   List.iter (fun (input, expected_output) ->
     let result = simp input in
     if result = expected_output then
-      Printf.printf "Test passed for input\n"
+      Printf.printf "Pass: Correctly simplified %s\n" (display_regex input)
     else
-      Printf.printf "Test failed for input: \n %s simplified to %s instead of %s" (display_regex input) (display_regex result) (display_regex expected_output)
+      Printf.printf "Fail: %s simplified to %s instead of %s\n" (display_regex input) (display_regex result) (display_regex expected_output)
   ) simp_test_cases
 
 
@@ -56,9 +75,9 @@ let mkEps_test_cases : (regex * value) list = [
 let run_tests_mkEps() = 
   List.iter (fun (regex, parseTree) -> 
     if (mkEps regex) = parseTree then
-      Printf.printf "Pass"
+      Printf.printf "Pass: mkEps correct for %s\n" (display_regex regex)
     else
-      Printf.printf "Failed, generated %s when %s was expected" (display_value (mkEps regex)) (display_value parseTree)
+      Printf.printf "Fail: mkEps generated %s when %s was expected\n" (display_value (mkEps regex)) (display_value parseTree)
   ) mkEps_test_cases
 
 
@@ -73,9 +92,9 @@ let run_tests_inj() =
   List.iter(fun (r, c, vs, vr) ->
       let res = inj r c vs in
       if res = vr then
-        Printf.printf "Pass"
+        Printf.printf "Pass: Correctly injected %s into %s \n" (c_str [c]) (display_value vs)
       else
-        Printf.printf "Failed, inj resulted in %s when %s was expected" (display_value res) (display_value vr)
+        Printf.printf "Fail: inj resulted in %s when %s was expected\n" (display_value res) (display_value vr)
     ) inj_test_cases
 
 
@@ -92,14 +111,12 @@ let lex_test_cases : (regex * char list * string) list = [
 ]
 let run_tests_lex() = 
   List.iter(fun (r, s, m) ->
-    Printf.printf "\n\nNew Test\n";
     let lexed = lex r s in
     let res = s_str (flatten lexed) in
     if res = m then
-      Printf.printf "Pass %s \n" res
+      Printf.printf "Pass: lexed %s \n" res
     else
-      Printf.printf "FAIL \n";
-      Printf.printf "Expected %s to match %s\n" res m 
+      Printf.printf "Fail: Expected %s to match %s\n" res m 
     ) lex_test_cases
 
 
@@ -112,9 +129,9 @@ let run_tests_env() =
   List.iter(fun (r, cl, toks) -> 
     let result = parse r cl in
     if result = toks then
-      Printf.printf "Pass, tokenized %s" @@ c_str cl
+      Printf.printf "Pass: tokenized %s\n" @@ c_str cl
     else (
-      Printf.printf "FAIL: Expected env to be:\n";
+      Printf.printf "Fail: Expected env to be:\n";
       display_env toks;
       Printf.printf "But found this instead: \n";
       display_env result;)
@@ -130,4 +147,4 @@ let run_suite() =
   run_tests_simp ()
 
 let () = 
-    run_suite ();
+    run_suite ()

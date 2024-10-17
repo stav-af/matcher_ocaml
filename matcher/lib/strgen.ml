@@ -29,6 +29,12 @@ let rec strgen (r: regex) (acc: char list) (max_depth: int) (curr_depth: int) =
   let downstream = (match r with
     | Zero | One -> CharListSet.empty
     | Char c -> strgen (der r c) (acc @ [c]) max_depth (curr_depth + 1)
+    | Any(cset) -> 
+      CharSet.fold (fun c ac -> 
+        CharListSet.union (strgen (der r c) (acc @ [c]) max_depth (curr_depth + 1)) ac
+      ) cset CharListSet.empty
+    | Plus(r1) -> gen (Seq(r1, (Star r1)))
+    | Opt(r1) -> gen (Alt(One, r1))
     | Alt(r1, r2) -> 
         let res1 = gen r1 in
         let res2 = gen r2 in

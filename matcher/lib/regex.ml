@@ -1,3 +1,5 @@
+module CharSet = Set.Make(Char)
+
 type regex = 
   | Zero
   | One
@@ -7,7 +9,9 @@ type regex =
   | Star of regex
   | NTimes of regex * int
   | Recd of string * regex
-  (* | Range of regex * int * int *)
+  | Any of CharSet.t
+  | Opt of regex
+  | Plus of regex
 
 type value =
   | StarVal of value list

@@ -2,24 +2,29 @@ open Regex
 open Formatter
 open Globals
 
+
 let ( ** ): regex -> regex -> regex = fun r1 r2 -> Seq (r1, r2)
 let ( ||| ): regex -> regex -> regex = fun r1 r2 -> Alt (r1, r2)
 let star: regex -> regex = fun r -> Star r
+let clts: char list -> CharSet.t = fun chars -> List.fold_left (fun set c -> CharSet.add c set) CharSet.empty chars
+
 
 let rec nullable(r: regex) = 
   match r with
-  | Zero | Char(_) -> false
-  | One  | Star(_) -> true
+  | Zero | Char(_) | Any(_) -> false
+  | One  | Star(_) | Opt(_) -> true
   | Seq(r1, r2) -> nullable r1 && nullable r2
   | Alt(r1, r2) -> nullable r1 || nullable r2
   | NTimes(r, n) -> n = 0 || nullable(r)
-  | Recd(_, r) -> nullable(r)
+  | Recd(_, r) | Plus (r) -> nullable(r)
+
 
 let rec der(r: regex) (c: char) =
   if !verbose then Printf.printf "Derivative being calculated for %s wrt. %s\n" (display_regex r) (String.make 1 c);
   match r with
   | Zero | One -> Zero
   | Char(x) -> if x = c then One else Zero
+  | Any(cset) -> if CharSet.mem c cset then One else Zero
   | Seq(r1, r2) -> 
     if nullable r1
     then (der r1 c ** r2) ||| der r2 c
@@ -27,7 +32,10 @@ let rec der(r: regex) (c: char) =
   | Alt(r1, r2) -> der r1 c ||| der r2 c
   | Star(r) -> der r c ** Star(r)
   | NTimes(r, n) -> if n = 0 then Zero else (der r c ** NTimes(r, n-1))
+  | Opt(r) -> der r c
+  | Plus(r) -> der r c ** Star(r) 
   | Recd(_, r1) -> der r1 c
+
 
 let rec simp(r: regex) =
   match r with
@@ -41,6 +49,7 @@ let rec simp(r: regex) =
   | Star(One) | Star(Zero) -> One
   | NTimes(One, _) -> One
   | NTimes(Zero, _) -> Zero
+  | Any(cset) when CharSet.is_empty cset -> Zero
   | r -> r
 
 
@@ -75,6 +84,7 @@ let rec inj (r: regex) (c: char) (v: value) =
     | Right(v2) -> Right(inj r2 c v2)
     | _ -> failwith @@ Printf.sprintf "Val not injectable at Regex: %s with Val: %s" (display_regex r) (display_value v))
   | (Char(ch), Empty) when ch = c -> Literal(ch)
+  | (Any(cset), Empty) when CharSet.mem c cset -> Literal(c)
   | (Star(r1), Pair(v1, StarVal(sv))) -> StarVal(inj r1 c v1::sv)
   | (Recd(x, r1), _) -> Rec(x, inj r1 c v)
   | _ -> v
@@ -89,6 +99,7 @@ let rec flatten v =
   | Left(v1) -> flatten v1
   | Right v1 -> flatten v1
   | Rec(_, v) -> flatten v
+
 
 let rec env v =
   match v with
