@@ -205,10 +205,24 @@ let run_syntax_test() =
     (if result <> result2 then (Printf.printf "Simp not correct\n") else (Printf.printf "Pass\n")))
   ) lex_while_test_cases *)
 
-let run_syntax_test st = 
+let run_syntax_test st =
+  let starttime1 = Unix.gettimeofday () in
   let result = env (lex_simp while_syntax (strtcl st)) in
+  let endtime1 = Unix.gettimeofday () in
+
+  let starttime2 = Unix.gettimeofday () in
   let result2 = env (lex_simp2 while_syntax (strtcl st)) in
-  if result <> result2 then (Printf.printf "Simp not correct\n") else (Printf.printf "Pass\n")
+  let endtime2 = Unix.gettimeofday () in
+
+  (* Check if the results from lex_simp and lex_simp2 are the same *)
+  if result <> result2 then
+    Printf.printf "Simp not correct\n"
+  else
+    Printf.printf "Pass\n";
+
+  (* Print the timings for each function *)
+  Printf.printf "Simp took: %f seconds\nSimp2 took: %f seconds\n"
+    (endtime1 -. starttime1) (endtime2 -. starttime2)
 
 let run_suite() =
   (* run_tests_inj (); *)

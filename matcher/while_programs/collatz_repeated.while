@@ -1,1147 +1,6 @@
 // Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
-}// Collatz series
-//
-// needs writing of strings and numbers; comments
-
-bnd := 1;
-while bnd < 101 do {
-  write bnd;
-  write ": ";
-  n := bnd;
-  cnt := 0;
-
-  while n > 1 do {
-    write n;
-    write ",";
-    
-    if n % 2 == 0 
-    then n := n / 2 
-    else n := 3 * n+1;
-
-    cnt := cnt + 1
-  };
-
-  write " => ";
-  write cnt;
-  write "\n";
-  bnd := bnd + 1
+// Collatz series
+// Collatz series
 // Collatz series
 //
 // needs writing of strings and numbers; comments
@@ -2260,6 +1119,786 @@ while bnd < 101 do {
   write cnt;
   write "\n";
   bnd := bnd + 1
+}
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
 }// Collatz series
 //
 // needs writing of strings and numbers; comments
@@ -2573,6 +2212,32 @@ while bnd < 101 do {
   write "\n";
   bnd := bnd + 1
 }// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}
 //
 // needs writing of strings and numbers; comments
 
@@ -3665,6 +3330,32 @@ while bnd < 101 do {
   write "\n";
   bnd := bnd + 1
 }// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}
 //
 // needs writing of strings and numbers; comments
 
@@ -4757,6 +4448,33 @@ while bnd < 101 do {
   write "\n";
   bnd := bnd + 1
 }// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}
+// Collatz series
 //
 // needs writing of strings and numbers; comments
 
@@ -5849,6 +5567,33 @@ while bnd < 101 do {
   write "\n";
   bnd := bnd + 1
 }// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}
+// Collatz series
 //
 // needs writing of strings and numbers; comments
 
@@ -6941,6 +6686,33 @@ while bnd < 101 do {
   write "\n";
   bnd := bnd + 1
 }// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}
+// Collatz series
 //
 // needs writing of strings and numbers; comments
 
@@ -8033,6 +7805,33 @@ while bnd < 101 do {
   write "\n";
   bnd := bnd + 1
 }// Collatz series
+//
+// needs writing of strings and numbers; comments
+
+bnd := 1;
+while bnd < 101 do {
+  write bnd;
+  write ": ";
+  n := bnd;
+  cnt := 0;
+
+  while n > 1 do {
+    write n;
+    write ",";
+    
+    if n % 2 == 0 
+    then n := n / 2 
+    else n := 3 * n+1;
+
+    cnt := cnt + 1
+  };
+
+  write " => ";
+  write cnt;
+  write "\n";
+  bnd := bnd + 1
+}
+// Collatz series
 //
 // needs writing of strings and numbers; comments
 
@@ -9150,4 +8949,4 @@ while bnd < 101 do {
   write cnt;
   write "\n";
   bnd := bnd + 1
-}}
+}
