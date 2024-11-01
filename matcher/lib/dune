@@ -1,4 +1,4 @@
 (library
  (name matcher)
  (public_name matcher)
- (modules formatter regex strgen core globals))
+ (modules formatter regex strgen core globals while))

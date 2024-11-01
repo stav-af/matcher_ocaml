@@ -47,6 +47,7 @@ let rec strgen (r: regex) (acc: char list) (max_depth: int) (curr_depth: int) =
     | Star(rs) -> gen (Seq(rs, r))
     | NTimes(rs, n) -> gen (Seq(rs, NTimes(rs, n - 1)))
     | Recd(_, rs) -> gen rs
+    | _ -> failwith "Not configured for strgen"
     ) in
   if nullable r then CharListSet.add acc downstream else downstream 
 
