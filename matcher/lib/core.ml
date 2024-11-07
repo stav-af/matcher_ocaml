@@ -194,5 +194,5 @@ let rec lex_simp2 (r: regex) (cl: char list) : value =
     let (r_simp, f_complicate) = simp2(der r c) in 
     inj r c (f_complicate(lex_simp2 r_simp cs))
 
-let parse (r: regex) (s: char list) : (string * string) list = 
-  env (lex_simp r s)
+
+  

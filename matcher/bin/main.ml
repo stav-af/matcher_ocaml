@@ -17,6 +17,28 @@ dune run will
 
 *)
 
+(*
+Exp ::= Term | Term + Exp | Term - Exp
+Term ::= F | F * Term | F / Term | F % Term
+F ::= 0..9 | (Exp) | Identifier
+
+BExp ::= BF | BF && BExp | BF || BExp | BF == BExp | BF != BExp
+BF ::= true | false | (Exp Bop Exp) | (BExp) | Identifier
+Bop := == | < | > | >= | <= | != 
+
+B ::= true | false | (BExp)
+
+CompoundStmt := Stmt | Stmt ; CompoundStmt
+Stmt := 
+  | Skip
+  | Identifier := Exp
+  | if BExp then Block else Block
+  | while BExp do Block
+  | read Identifier
+  | write Identifier
+
+Block := { CompoundStmt }
+*)
 let explode s = List.init (String.length s) (String.get s)
 
 let regex_test_cases : (regex * char list * bool) list = [
@@ -149,7 +171,7 @@ let run_tests_lex_simp() =
 
 
 
-let env_test_cases: (regex * string * (string * string) list) list = [
+(* let env_test_cases: (regex * string * (string * string) list) list = [
   (Recd("Nonsense", Star(Char 'a')), "aaa", [("Nonsense", "aaa")]);
   (Star(Char 'a'), "aaa", []);
 ]
@@ -163,7 +185,7 @@ let run_tests_env() =
       display_env toks;
       Printf.printf "But found this instead: \n";
       display_env result;)
-    ) env_test_cases
+    ) env_test_cases *)
 
 let lex_while_test_cases : (string * (string*string) list) list = [
   ("read n;", [("k", "read"); ("w", " "); ("i", "n"); ("s", ";")]);
@@ -207,18 +229,18 @@ let run_syntax_test() =
 
 let run_syntax_test st =
   let starttime1 = Unix.gettimeofday () in
-  let result = env (lex_simp while_syntax (strtcl st)) in
+  let result = env (lex_simp while_toks (strtcl st)) in
   let endtime1 = Unix.gettimeofday () in
 
   let starttime2 = Unix.gettimeofday () in
-  let result2 = env (lex_simp2 while_syntax (strtcl st)) in
+  let result2 = env (lex_simp2 while_toks (strtcl st)) in
   let endtime2 = Unix.gettimeofday () in
 
   (* Check if the results from lex_simp and lex_simp2 are the same *)
   if result <> result2 then
     Printf.printf "Simp not correct\n"
   else
-    Printf.printf "Pass\n";
+    Printf.printf "Pass %s\n" (display_toks result);
 
   (* Print the timings for each function *)
   Printf.printf "Simp took: %f seconds\nSimp2 took: %f seconds\n"
@@ -232,7 +254,7 @@ let run_suite() =
   let n = in_channel_length ic in
   let s = really_input_string ic n in
   run_syntax_test s; 
-  Printf.printf "Called simp: %#d\nCalled simp2: %#d" !simp_calls !simp2_calls
+  Printf.printf "Called simp: %#d times\nCalled simp2: %#d times" !simp_calls !simp2_calls
   (* run_syntax_test () *)
   (* run_tests_match (); *)
   (* run_tests_mkEps () *)
